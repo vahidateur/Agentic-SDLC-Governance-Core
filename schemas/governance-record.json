@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agentic-sdlc-governance-core/schemas/governance-record.json",
+  "title": "Governance Record / Decision Record",
+  "description": "Immutable semantic record contract. A Decision Record is the review-facing form of a Governance_Record, not a duplicate record type.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_id", "record_type", "decision_status", "stable_reason", "governed_boundary", "work_package_identity", "authority_references", "provenance_references", "baseline_reference", "policy_references", "related_record_references", "immutable"],
+  "properties": {
+    "record_id": { "type": "string", "minLength": 1 },
+    "record_type": { "type": "string", "enum": ["authority", "admission", "block", "change", "evidence", "concurrency", "review", "completion", "decision"] },
+    "decision_status": { "type": "string", "enum": ["ACCEPTED", "REJECTED", "BLOCKED", "QUARANTINED", "HUMAN_DECISION_REQUIRED", "WAITING"] },
+    "stable_reason": { "type": "string", "minLength": 1 },
+    "governed_boundary": { "type": "string", "minLength": 1 },
+    "work_package_identity": { "type": "string", "minLength": 1 },
+    "attempt_identity": { "type": ["string", "null"] },
+    "authority_references": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "provenance_references": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "baseline_reference": { "type": "string", "minLength": 1 },
+    "policy_references": { "type": "array", "items": { "type": "string" } },
+    "related_record_references": { "type": "array", "items": { "type": "string" } },
+    "immutable": { "const": true }
+  }
+}

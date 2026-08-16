@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agentic-sdlc-governance-core/schemas/evidence-artifact.json",
+  "title": "Evidence Artifact",
+  "description": "Review-facing artifact form of an immutable Evidence_Record. A claim without this evidence is not completion.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_id", "work_package_identity", "baseline_reference", "condition_reference", "validity", "authority_reference", "integrity_reference", "provenance_reference", "result"],
+  "properties": {
+    "evidence_id": { "type": "string", "minLength": 1 },
+    "work_package_identity": { "type": "string", "minLength": 1 },
+    "attempt_identity": { "type": ["string", "null"] },
+    "baseline_reference": { "type": "string", "minLength": 1 },
+    "condition_reference": { "type": "string", "minLength": 1 },
+    "validity": { "type": "string", "enum": ["CURRENT", "STALE", "UNVERIFIABLE", "CONTRADICTORY"] },
+    "authority_reference": { "type": "string", "minLength": 1 },
+    "integrity_reference": { "type": "string", "minLength": 1 },
+    "provenance_reference": { "type": "string", "minLength": 1 },
+    "result": { "type": "string", "minLength": 1 }
+  }
+}

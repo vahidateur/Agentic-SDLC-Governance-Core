@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agentic-sdlc-governance-core/schemas/adr.json",
+  "title": "Architecture Decision Record",
+  "description": "Semantic ADR contract for decisions affecting the governance boundary.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["adr_id", "decision", "rationale", "status", "authority_reference", "provenance_reference", "affected_boundary", "supersedes", "accepted_for_implementation"],
+  "properties": {
+    "adr_id": { "type": "string", "minLength": 1 },
+    "decision": { "type": "string", "minLength": 1 },
+    "rationale": { "type": "string", "minLength": 1 },
+    "status": { "type": "string", "enum": ["PROPOSED", "ACCEPTED", "REJECTED", "SUPERSEDED", "CONFLICTING"] },
+    "authority_reference": { "type": "string", "minLength": 1 },
+    "provenance_reference": { "type": "string", "minLength": 1 },
+    "affected_boundary": { "type": "string", "minLength": 1 },
+    "supersedes": { "type": ["string", "null"] },
+    "accepted_for_implementation": { "type": "boolean", "description": "Must be false unless this ADR is accepted, non-conflicting, fully traceable, and boundary-approved." }
+  }
+}

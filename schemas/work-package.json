@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agentic-sdlc-governance-core/schemas/work-package.json",
+  "title": "Work Package",
+  "description": "Semantic contract only. This schema does not prescribe storage, APIs, or runtime implementation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["work_package_identity", "lifecycle_version", "scope_boundary", "semantic_owner", "authority_reference", "baseline_reference", "provenance_reference", "completion_conditions"],
+  "properties": {
+    "work_package_identity": { "type": "string", "minLength": 1 },
+    "lifecycle_version": { "type": "string", "minLength": 1 },
+    "run_identity": { "type": ["string", "null"], "description": "Review-facing label for the actual execution identity represented by attempt_identity; null for declaration, validation, inspection, or replay." },
+    "attempt_identity": { "type": ["string", "null"], "description": "Unique, non-reusable identity allocated only for one actual execution attempt." },
+    "scope_boundary": { "$ref": "#/$defs/scopeBoundary" },
+    "semantic_owner": { "type": "string", "minLength": 1 },
+    "authority_reference": { "type": "string", "minLength": 1 },
+    "baseline_reference": { "type": "string", "minLength": 1 },
+    "provenance_reference": { "type": "string", "minLength": 1 },
+    "completion_conditions": { "type": "array", "description": "An explicit empty array blocks completion; conditions are never inferred.", "items": { "type": "string", "minLength": 1 } }
+  },
+  "$defs": {
+    "scopeBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["included_work", "excluded_work", "affected_surfaces", "authority_boundaries", "ownership_boundaries"],
+      "properties": {
+        "included_work": { "type": "array", "items": { "type": "string" } },
+        "excluded_work": { "type": "array", "items": { "type": "string" } },
+        "affected_surfaces": { "type": "array", "items": { "type": "string" } },
+        "authority_boundaries": { "type": "array", "items": { "type": "string" } },
+        "ownership_boundaries": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
