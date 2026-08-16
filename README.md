@@ -7,6 +7,27 @@ The Agentic SDLC Governance Core is a technology-neutral, fail-closed governance
 
 This repository is a reusable governance reference. It contains no application code, runtime wiring, provider integration, persistence implementation, deployment mechanism, UI, or technology-specific dependency.
 
+## Why this exists
+
+Agentic AI systems introduce new governance challenges:
+- unclear agent authority
+- missing provenance
+- unverifiable execution claims
+- uncontrolled automation
+
+This project defines governance primitives to make agent-assisted software delivery reviewable, bounded, and accountable.
+
+## Usage
+
+This repository is currently a documentation and governance reference.
+
+Start with:
+
+1. Review the governance model.
+2. Understand the core vocabulary.
+3. Evaluate applicable governance contracts.
+4. Use templates for future implementation proposals.
+
 ## Core vocabulary
 
 - **Work Package Identity** — the stable identity and lifecycle-version binding for one bounded unit of work. In the normative source vocabulary this is `Work_Package_Identity`.
@@ -52,4 +73,4 @@ Open decisions include identity derivation and representation, attempt allocatio
 
 ## License
 
-Released under the MIT License. See [`LICENSE`](LICENSE).
+Released under the Apache License 2.0. See [LICENSE](LICENSE).
