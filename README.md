@@ -10,6 +10,7 @@ This repository is a reusable governance reference. It contains no application c
 ## Why this exists
 
 Agentic AI systems introduce new governance challenges:
+
 - unclear agent authority
 - missing provenance
 - unverifiable execution claims
